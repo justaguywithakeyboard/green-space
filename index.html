@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#173e32">
+    <title>GreenSpace | Neighbourhood Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="navbar">
+        <a href="#" class="brand">
+            <span class="brand-icon">🌱</span>
+            <span>GreenSpace</span>
+        </a>
+        <span class="nav-label">Green Neighbourhood Tracker</span>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <span class="eyebrow">OUR COMMUNITY, OUR PLANET</span>
+                <h1>Let's grow a greener neighbourhood.</h1>
+                <p>
+                    Every tree counts. Record your planting efforts,
+                    explore our green spaces, and help our community grow.
+                </p>
+                <a href="#plant-tree" class="primary-button">
+                    + Plant a tree
+                </a>
+            </div>
+            <div class="hero-illustration" aria-hidden="true">
+                <span>🌳</span>
+                <span>🌲</span>
+                <span>🌳</span>
+            </div>
+        </section>
+
+        <section class="stats-grid" aria-label="Community statistics">
+            <article class="stat-card">
+                <div class="stat-icon">🌳</div>
+                <p class="stat-label">Total trees</p>
+                <h2 id="total-trees">0</h2>
+                <p class="stat-note">Trees planted by residents</p>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon">🍃</div>
+                <p class="stat-label">Tree species</p>
+                <h2 id="total-species">0</h2>
+                <p class="stat-note">Different species recorded</p>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon">📍</div>
+                <p class="stat-label">Locations</p>
+                <h2 id="total-locations">0</h2>
+                <p class="stat-note">Areas with planted trees</p>
+            </article>
+        </section>
+
+        <section class="progress-section">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">COMMUNITY MILESTONE</span>
+                    <h2>Our green journey</h2>
+                </div>
+                <label class="target-control" for="target-input">
+                    Target
+                    <input type="number" id="target-input" min="1" max="1000000" value="100">
+                </label>
+            </div>
+
+            <div class="progress-info">
+                <p>
+                    <strong id="progress-count">0 / 100</strong>
+                    trees planted
+                </p>
+                <strong id="progress-percent">0%</strong>
+            </div>
+
+            <div class="progress-track" id="progress-track" role="progressbar" aria-label="Community planting progress"
+                aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+
+            <p class="progress-message" id="progress-message">
+                Every tree brings us closer to our goal!
+            </p>
+        </section>
+
+        <section class="content-grid">
+            <section class="panel form-panel" id="plant-tree">
+                <div class="panel-heading">
+                    <span class="eyebrow">MAKE A DIFFERENCE</span>
+                    <h2>Register a tree</h2>
+                    <p>Tell us about the tree you planted.</p>
+                </div>
+
+                <form id="tree-form">
+                    <div class="form-group">
+                        <label for="resident-name">Resident name</label>
+                        <input type="text" id="resident-name" placeholder="e.g. Rahul" maxlength="60" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tree-species">Tree species</label>
+                        <select id="tree-species" required>
+                            <option value="">Select a species</option>
+                            <option value="Neem">Neem</option>
+                            <option value="Mango">Mango</option>
+                            <option value="Banyan">Banyan</option>
+                            <option value="Peepal">Peepal</option>
+                            <option value="Coconut">Coconut</option>
+                            <option value="Gulmohar">Gulmohar</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="custom-species-group" hidden>
+                        <label for="custom-species">Enter species name</label>
+                        <input type="text" id="custom-species" placeholder="e.g. Jackfruit" maxlength="60">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tree-location">Planting location</label>
+                        <select id="tree-location" required>
+                            <option value="">Select a location</option>
+                            <option value="Block A">Block A</option>
+                            <option value="Block B">Block B</option>
+                            <option value="Block C">Block C</option>
+                            <option value="Community Park">Community Park</option>
+                            <option value="Main Road">Main Road</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="custom-location-group" hidden>
+                        <label for="custom-location">Enter location</label>
+                        <input type="text" id="custom-location" placeholder="e.g. Block D" maxlength="60">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="planting-date">Planting date</label>
+                        <input type="date" id="planting-date" required>
+                    </div>
+
+                    <button type="submit" class="primary-button submit-button">
+                        + Register tree
+                    </button>
+
+                    <p class="form-message" id="form-message" role="status"></p>
+                </form>
+            </section>
+
+            <section class="panel trees-panel" id="tree-list">
+                <div class="panel-heading">
+                    <span class="eyebrow">GROWING TOGETHER</span>
+                    <h2>Our trees</h2>
+                    <p>Explore the trees planted in our neighbourhood.</p>
+                </div>
+
+                <div class="filters">
+                    <div class="form-group">
+                        <label for="filter-species">Filter by species</label>
+                        <select id="filter-species">
+                            <option value="">All species</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filter-location">Filter by location</label>
+                        <select id="filter-location">
+                            <option value="">All locations</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="list-toolbar">
+                    <span id="results-count">0 trees found</span>
+                    <button type="button" class="text-button" id="clear-filters">
+                        Clear filters
+                    </button>
+                </div>
+
+                <div class="tree-list" id="trees-container">
+                    <!-- Tree cards are added here by JavaScript. -->
+                </div>
+
+                <div class="empty-state" id="empty-state" hidden>
+                    <span>🌱</span>
+                    <h3>No trees found</h3>
+                    <p>Try changing your filters or register a new tree.</p>
+                </div>
+            </section>
+        </section>
+
+        <section class="bottom-banner">
+            <span class="banner-icon">🌍</span>
+            <div>
+                <h2>A greener tomorrow starts today.</h2>
+                <p>Small actions today create a healthier planet tomorrow.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>GreenSpace · Growing together for a greener future 🌿</p>
+    </footer>
+</body>
+
+</html>
