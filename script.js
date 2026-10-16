@@ -24,74 +24,46 @@ const targetInput = document.getElementById("target-input");
 const sampleTrees = [
     {
         id: 1,
-        resident: "Chethan Gowda",
-        species: "Neem",
-        location: "PESCE",
-        date: "2026-10-01"
-    },
-    {
-        id: 2,
-        resident: "Priya",
-        species: "Mango",
-        location: "Park",
-        date: "2026-10-02"
-    },
-    {
-        id: 3,
         resident: "Shivaraj",
         species: "Coconut",
         location: "PES Boys Hostel",
         date: "2026-10-06"
     },
     {
-        id: 4,
-        resident: "Sagar K",
-        species: "Jacaranda",
-        location: "Central Garden",
+        id: 2,
+        resident: "Tulasi Krishna",
+        species: "Tulsi (Holy Basil)",
+        location: "PESCE",
         date: "2026-10-04"
     },
     {
-        id: 5,
-        resident: "Prajwal Gowda",
-        species: "Teak",
+        id: 3,
+        resident: "Yash Rathod",
+        species: "Neem",
         location: "PESCE",
+        date: "2026-10-01"
+    },
+    {
+        id: 4,
+        resident: "Vamshi",
+        species: "Moringa (Drumstick)",
+        location: "PES Boys Hostel",
+        date: "2026-10-03"
+    },
+    {
+        id: 5,
+        resident: "Ullas NM",
+        species: "Peepal",
+        location: "Park",
         date: "2026-10-05"
     },
     {
         id: 6,
-        resident: "Ananya",
-        species: "Banyan",
-        location: "Park",
-        date: "2026-10-03"
+        resident: "Sudhanshu",
+        species: "Mango",
+        location: "PES Boys Hostel",
+        date: "2026-10-02"
     },
-    {
-        id: 7,
-        resident: "Chandan Kumar",
-        species: "Ashoka",
-        location: "PESCE",
-        date: "2026-10-07"
-    },
-    {
-        id: 8,
-        resident: "Meghana S.",
-        species: "Gulmohar",
-        location: "Sports Complex",
-        date: "2026-10-08"
-    },
-    {
-        id: 9,
-        resident: "Rakshith Raj",
-        species: "Bamboo",
-        location: "Park",
-        date: "2026-10-09"
-    },
-    {
-        id: 10,
-        resident: "Keerthana N.",
-        species: "Peepal",
-        location: "Sports Complex",
-        date: "2026-10-10"
-    }
 ];
 
 let trees = loadTrees();
